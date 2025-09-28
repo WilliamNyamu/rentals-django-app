@@ -38,7 +38,7 @@ class CustomUser(AbstractUser):
     profile_photo = models.ImageField(upload_to="profile_photos/", blank=True, null=True)
     phone_number = models.CharField(
         max_length=15,
-        blank=True,
+        blank=False,
         null=True,
         unique=True,
         validators=[validate_phone_number]
