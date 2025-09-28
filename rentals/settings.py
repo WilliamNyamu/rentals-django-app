@@ -137,3 +137,8 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 # Media files for upload
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+AUTHENTICATION_BACKENDS = [
+    'accounts.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend'
+]
