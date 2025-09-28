@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import UserManager, AbstractUser
+from .validators import validate_phone_number
 
 # Create your models here.
 
@@ -35,6 +36,13 @@ class CustomUser(AbstractUser):
     location = models.CharField(max_length=100, blank=True, null=True)
     username = models.CharField(max_length=150, unique=False, blank=True)
     profile_photo = models.ImageField(upload_to="profile_photos/", blank=True, null=True)
+    phone_number = models.CharField(
+        max_length=15,
+        blank=True,
+        null=True,
+        unique=True,
+        validators=[validate_phone_number]
+    )
 
     objects = CustomUserManager()
 
